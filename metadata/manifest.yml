@@ -1,13 +1,13 @@
 Name: diy
 Cartridge-Short-Name: DIY
 Display-Name: Do-It-Yourself 0.1
-Description: "The Do-It-Yourself (DIY) application type is a blank slate for trying unsupported languages, frameworks, and middleware on OpenShift. See the community site for examples of bringing your favorite framework to OpenShift."
+Description: "The extra-port Do-It-Yourself (DIY) application type is a blank slate for trying unsupported languages, frameworks, and middleware on OpenShift. This extension of the standard DIY cartridge exposes an extra port in addition to the one used for web access, which can be used for any protocol."
 Version: '0.1'
 License: "ASL 2.0"
 License-Url: http://www.apache.org/licenses/LICENSE-2.0.txt
 Cartridge-Version: 0.0.1
-Cartridge-Vendor: redhat
-Vendor: redhat
+Cartridge-Vendor: sosiouxme
+Vendor: sosiouxme
 Categories:
   - web_framework
   - experimental
@@ -30,6 +30,12 @@ Cart-Data:
   - Key: OPENSHIFT_DIY_IP
     Type: environment
     Description: "Internal IP to which the web-framework binds to."
+  - Key: OPENSHIFT_DIY_EXTRA_PORT
+    Type: environment
+    Description: "Internal port for something other than web-framework to bind to."
+  - Key: OPENSHIFT_DIY_EXTRA_PROXY_PORT
+    Type: environment
+    Description: "External node port to reach non-web-framework port."
   - Key: OPENSHIFT_APP_DNS
     Type: environment
     Description: "Fully qualified domain name for the application."
@@ -78,3 +84,7 @@ Endpoints:
       - Frontend:      "/health"
         Backend:       ""
         Options:       { health: true }
+  - Private-IP-Name:   IP
+    Private-Port-Name: EXTRA_PORT
+    Private-Port:      15000
+    Public-Port-Name:  EXTRA_PROXY_PORT

@@ -34,7 +34,8 @@ The `diy` cartridge provides the following environment variables to reference fo
 of use:
 
     OPENSHIFT_DIY_IP      The IP address assigned to the application
-    OPENSHIFT_DIY_PORT    The port assigned to the the application
+    OPENSHIFT_DIY_PORT    The HTTP-routed port assigned to the the application
+    OPENSHIFT_DIY_EXTRA_PORT  An extra port assigned to the the application
 
 For more information about environment variables, consult the
 [OpenShift Application Author Guide](https://github.com/openshift/origin-server/blob/master/node/README.writing_applications.md).
