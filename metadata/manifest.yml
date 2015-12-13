@@ -89,3 +89,8 @@ Endpoints:
     Private-Port-Name: EXTRA_PORT
     Private-Port:      15000
     Public-Port-Name:  EXTRA_PROXY_PORT
+    Mappings:
+      - Frontend:      ""
+        Backend:       ""
+        Options:       { websocket: true }
+
